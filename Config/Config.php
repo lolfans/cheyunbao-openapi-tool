@@ -8,7 +8,6 @@ class Config{
     const MD5             = "MD5";
     const SIGN            = "sign";
 
-
     //表单类型Content-Type
     const CONTENT_TYPE_FORM     = "application/x-www-form-urlencoded; charset=UTF-8";
     // 流类型Content-Type
@@ -19,8 +18,7 @@ class Config{
     const CONTENT_TYPE_XML      = "application/xml; charset=UTF-8";
     //文本类型Content-Type
     const CONTENT_TYPE_TEXT     = "application/text; charset=UTF-8";
-
-
+    
     //请求Header Accept
     const HTTP_HEADER_ACCEPT        = "Accept";
     //请求Body内容MD5 Header
@@ -45,12 +43,10 @@ class Config{
     //HEAD
     const HEAD      = "HEAD";
 
-
     //HTTP
     const HTTP  = "http://";
     //HTTPS
     const HTTPS = "https://";
-
 
     //签名Header
     const X_API_ACCESSKEY   = "x-api-accessKey";

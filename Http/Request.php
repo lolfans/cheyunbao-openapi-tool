@@ -12,8 +12,6 @@ class Request{
     protected  $headers = array();
     protected  $signHeaders = array();
 
-
-
     public function  __construct($host, $method)
     {
         $this->host = $host;

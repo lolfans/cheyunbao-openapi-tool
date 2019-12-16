@@ -10,7 +10,6 @@ $gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';
 //初始化
 $client        = new Client($gateway, $accessKey, $secretKey);
 
-
 /**
  * 通用请求示例
  */
@@ -20,7 +19,7 @@ $requestParamsSend = [
     "partnerId"     => '19092311080520110003',
     "requestNo"     => '2019124152452145224',
     //业务参数
-    "certNo"        => "1101011990030762589",
+    "certNo"        => "110101199003075859",
     "certBackPath"  => "http://www.domain.com/certBackPath.jpg",
     "certFrontPath" => "http://www.domain.com/certFrontPath.jpg",
     "bankCardNo"    => "6228480020668298217",
@@ -33,7 +32,6 @@ $requestParamsSend = [
 $response   = $client->send($requestParamsSend);
 var_dump($response);
 
-
 /**
  * 跳转接口示例
  */
@@ -41,7 +39,7 @@ $requestParamsRedirect = [
     //公共参数
     "service"       => "walletRedirect",
     "partnerId"     => "19092311080520110003",
-    "requestNo"     => '2019124152452145258',
+    "requestNo"     => '2019124152452145777',
     "returnUrl"     => "http://www.baidu.com",
     //业务参数
     "userId"        => "19111210115316210056",
@@ -54,14 +52,12 @@ $requestParamsRedirect = [
 $url        = $client->redirect($requestParamsRedirect);
 var_dump($url);
 
-
 /**
  * 签名示例
  */
 $json       = '{"service":"queryAccountAndAuthInfo","userNo":"19111210115316210056","hello":""}';
 $sign       = $client->sign($json);
 var_dump($sign);
-
 
 /**
  * 验签示例

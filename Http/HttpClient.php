@@ -4,7 +4,6 @@ class HttpClient{
 
     protected $util;
     protected $response;
-
     protected $gateway;
     protected $accessKey;
     protected $secretKey;
@@ -20,7 +19,6 @@ class HttpClient{
     {
         $this->util         = new Util();
         $this->response     = new Response();
-
         $this->gateway      = $gateway;
         $this->accessKey    = $accessKey;
         $this->secretKey    = $secretKey;
@@ -58,7 +56,6 @@ class HttpClient{
         return $this->curl($request->getHost(),$request->getMethod(),$request->getBodys(),$headers);
     }
 
-
     /**
      * 加密
      * @param $requestParams
@@ -71,7 +68,6 @@ class HttpClient{
         return $result;
     }
 
-
     /**
      * 获取头部中的 签名字符串
      * @param $header
@@ -83,7 +79,6 @@ class HttpClient{
 
         return $sign;
     }
-
 
     /**
      * 验签
@@ -98,7 +93,6 @@ class HttpClient{
         return $bool;
     }
 
-
     /**
      * 设置公共参数
      * @param $requestParams
@@ -109,7 +103,6 @@ class HttpClient{
         $requestParams = $this->util->addCommonParams($requestParams,'');
         return $requestParams;
     }
-
 
     /**
      * 获取跳转的url
@@ -124,7 +117,6 @@ class HttpClient{
         return $url;
     }
 
-
     /**
      * 发送请求 返回结果
      * @param $url
@@ -133,10 +125,8 @@ class HttpClient{
      * @param $headers
      * @return Response
      */
-
     public function curl($url,$method,$params,$headers)
     {
-
         if(is_array($params)){
             $params = json_encode($params,JSON_UNESCAPED_UNICODE);
         }
@@ -176,7 +166,6 @@ class HttpClient{
         }
 
         $result = curl_exec($curl);     //执行预定义的CURL
-
         $this->response->setHttpStatusCode(curl_getinfo($curl, CURLINFO_HTTP_CODE));
 
         $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
@@ -185,7 +174,6 @@ class HttpClient{
 
         $this->response->setHeader($header);
         $this->response->setBody($body);
-
 
         curl_close($curl);      //关闭cURL会话
         return $this->response;

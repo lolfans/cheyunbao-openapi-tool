@@ -29,7 +29,6 @@ class Util{
     {
 
         ksort($filteredData); //排序
-
         $str  = "";
         foreach ($filteredData as $key => $val) {
             if (is_array($val)) {
@@ -82,7 +81,6 @@ class Util{
         return $requestNo;
     }
 
-
     /**
      * 获取请求头的签名字符串
      * @param $header
@@ -102,7 +100,6 @@ class Util{
         return $sign;
     }
 
-
     /**
      * 过滤 特殊符号
      * @param $str
@@ -116,7 +113,6 @@ class Util{
 
         return $str;
     }
-
 
     /**
      * 验签
@@ -155,7 +151,6 @@ class Util{
         return strtolower(md5(trim($str)));
     }
 
-
     /**
      * 拼接跳转 url
      * @param $host
@@ -177,7 +172,6 @@ class Util{
         return $url;
 
     }
-
 
     /**
      * 生成随机数

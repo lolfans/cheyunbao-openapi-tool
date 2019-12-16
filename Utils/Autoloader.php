@@ -2,6 +2,7 @@
 spl_autoload_register("Autoloader::autoload"); //自 PHP5.3.0起
 
 class Autoloader{
+
 	private static $autoloadPathArray = array("Config", "Http", "Utils");
 
     /**

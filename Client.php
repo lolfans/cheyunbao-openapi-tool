@@ -5,6 +5,12 @@ class Client{
 
     protected $client;
 
+    /**初始化参数
+     * Client constructor.
+     * @param $gateway
+     * @param $accessKey
+     * @param $secretKey
+     */
     public function __construct($gateway, $accessKey, $secretKey)
     {
         $this->client = new HttpClient($gateway, $accessKey, $secretKey);
@@ -35,13 +41,11 @@ class Client{
 
     }
 
-
     /**
      * 获取跳转url
      * @param $requestParams
      * @return mixed
      */
-
     public function redirect($requestParams)
     {
 
@@ -65,7 +69,6 @@ class Client{
         return $result;
     }
 
-
     /**
      * 验签 返回 true或者 false
      * @param $content
@@ -78,6 +81,5 @@ class Client{
 
         return $bool;
     }
-
 
 }
