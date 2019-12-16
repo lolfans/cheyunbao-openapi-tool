@@ -18,7 +18,6 @@ $client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 
 #通用请求示例
 
 $response   = $client->send($requestParamsSend);
-
 var_dump($response);
 
 
@@ -26,21 +25,18 @@ var_dump($response);
 #跳转接口示例
 
 $url        = $client->redirect($requestParamsRedirect);
-
 var_dump($url);
 
 
 #签名示例
 
 $sign       = $client->sign($json);
-
 var_dump($sign);
 
 
 #验签示例
 
 $bool           = $client->verify($responseBody, $signStr);
-
 var_dump($bool);
 
 
