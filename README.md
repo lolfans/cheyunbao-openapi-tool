@@ -46,8 +46,7 @@ var_dump($response);
     var_dump($bool);
 
 ---
-tips:正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，
-一是注意包含client.php的路径是否正确，二是注意命名空间的问题。
+tips:demo.php,demo.php,demo.php。正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，一是注意包含client.php的路径是否正确，二是注意命名空间的问题。
 ---
 
 
