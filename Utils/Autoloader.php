@@ -15,7 +15,7 @@ class Autoloader{
 			$file = dirname(__DIR__).DIRECTORY_SEPARATOR.$path.DIRECTORY_SEPARATOR.$className.".php";
 			$file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
 			if(is_file($file)){
-				include_once $file;
+				require_once $file;
 				break;
 			}
 		}
