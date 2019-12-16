@@ -40,3 +40,8 @@ $bool           = $client->verify($responseBody, $signStr);
 var_dump($bool);
 
 
+tips:正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，
+一是注意包含client.php的时候，路径是否不对，二是注意命名空间的问题。
+
+
+
