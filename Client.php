@@ -1,5 +1,5 @@
 <?php
-include_once 'Utils/Autoloader.php';
+require_once 'Utils/Autoloader.php';
 
 class Client{
 

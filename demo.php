@@ -1,5 +1,5 @@
 <?php
-include_once 'Client.php';
+require_once 'Client.php';
 
 // 接入商账号
 $accessKey     = '19092311080520110003';
