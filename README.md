@@ -1,5 +1,10 @@
-#使用方法
+------
+使用方法
+------
 
+------
+该包是基于原生PHP的工具包，PHP5.3以上都是可以使用
+------
 1、 先下载此工具包到项目的工具类文件夹下
 
 2、 include_once 'Client.php';  //此处注意包含该文件的要根据项目的实际位置设置，切记
@@ -14,34 +19,37 @@ $gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请�
 $client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
 
 
-
-#通用请求示例
-
+---
+通用请求示例
+---
 $response   = $client->send($requestParamsSend);
+
 var_dump($response);
 
 
-
-#跳转接口示例
-
+---
+跳转接口示例
+---
 $url        = $client->redirect($requestParamsRedirect);
+
 var_dump($url);
 
-
-#签名示例
-
+---
+签名示例
+---
 $sign       = $client->sign($json);
+
 var_dump($sign);
 
-
-#验签示例
-
+---
+验签示例
+---
 $bool           = $client->verify($responseBody, $signStr);
 var_dump($bool);
 
-
+---
 tips:正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，
 一是注意包含client.php的路径是否正确，二是注意命名空间的问题。
-
+---
 
 
