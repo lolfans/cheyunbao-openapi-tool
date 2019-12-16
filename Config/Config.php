@@ -18,7 +18,7 @@ class Config{
     const CONTENT_TYPE_XML      = "application/xml; charset=UTF-8";
     //文本类型Content-Type
     const CONTENT_TYPE_TEXT     = "application/text; charset=UTF-8";
-    
+
     //请求Header Accept
     const HTTP_HEADER_ACCEPT        = "Accept";
     //请求Body内容MD5 Header
