@@ -7,41 +7,41 @@
 2、 include_once 'Client.php';  //此处注意包含该文件的要根据项目的实际位置设置，切记
 
  
-    $accessKey     = '19092311080520110003';   // 接入商账号 请根据实际情况填入
+    $accessKey = '19092311080520110003';   // 接入商账号 请根据实际情况填入
 
-    $secretKey     = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥 请根据实际情况填入
+    $secretKey = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥 请根据实际情况填入
 
-    $gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关  请根据实际情况填入 此处仅是测试环境
+    $gateway   = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关  请根据实际情况填入 此处仅是测试环境
 
-    $client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
+    $client    = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
 
 
 ---
 通用请求示例
 ---
-$response   = $client->send($requestParamsSend);
+    $response  = $client->send($requestParamsSend);
 
-var_dump($response);
+    var_dump($response);
 
 
 ---
 跳转接口示例
 ---
-    $url        = $client->redirect($requestParamsRedirect);
+    $url = $client->redirect($requestParamsRedirect);
 
     var_dump($url);
 
 ---
 签名示例
 ---
-    $sign       = $client->sign($json);
+    $sign = $client->sign($json);
 
     var_dump($sign);
 
 ---
 验签示例
 ---
-    $bool           = $client->verify($responseBody, $signStr);
+    $bool = $client->verify($responseBody, $signStr);
     
     var_dump($bool);
 
