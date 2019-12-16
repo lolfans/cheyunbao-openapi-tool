@@ -1,24 +1,17 @@
 #使用方法
 
-1、先下载此工具包到项目的工具类文件夹下
+1、 先下载此工具包到项目的工具类文件夹下
 
-2、include_once 'Client.php';//此处注意包含该文件的要根据项目的实际位置设置，切记
+2、 include_once 'Client.php';  //此处注意包含该文件的要根据项目的实际位置设置，切记
 
-// 接入商账号
+ 
+$accessKey     = '19092311080520110003';   // 接入商账号
 
-$accessKey     = '19092311080520110003';
+$secretKey     = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥
 
-// 接入商密钥
+$gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关
 
-$secretKey     = '06f7aab08aa2431e6dae6a156fc9e0b4';
-
-// 请求网关
-
-$gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';
-
-//初始化时 带入必填参数
-
-$client        = new Client($gateway, $accessKey, $secretKey);
+$client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
 
 
 
