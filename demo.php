@@ -17,7 +17,7 @@ $requestParamsSend = [
     //公共参数
     "service"       => "personRegister",
     "partnerId"     => '19092311080520110003',
-    "requestNo"     => 'SYS'.date('YmdHis').mt_rand(1000000000,9999999999),
+    "requestNo"     => date('YmdHis').mt_rand(1000000000,9999999999),
     //业务参数
     "certNo"        => "110101199003075859",
     "certBackPath"  => "http://www.domain.com/certBackPath.jpg",
@@ -39,7 +39,7 @@ $requestParamsRedirect = [
     //公共参数
     "service"       => "walletRedirect",
     "partnerId"     => "19092311080520110003",
-    "requestNo"     => 'SYS'.date('YmdHis').mt_rand(1000000000,9999999999),
+    "requestNo"     => date('YmdHis').mt_rand(1000000000,9999999999),
     "returnUrl"     => "http://www.baidu.com",
     //业务参数
     "userId"        => "19111210115316210056",
