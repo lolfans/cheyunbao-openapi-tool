@@ -7,13 +7,13 @@
 2、 include_once 'Client.php';  //此处注意包含该文件的要根据项目的实际位置设置，切记
 
  
-$accessKey     = '19092311080520110003';   // 接入商账号
+    $accessKey     = '19092311080520110003';   // 接入商账号
 
-$secretKey     = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥
+    $secretKey     = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥
 
-$gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关
+    $gateway       = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关
 
-$client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
+    $client        = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
 
 
 ---
@@ -27,22 +27,23 @@ var_dump($response);
 ---
 跳转接口示例
 ---
-$url        = $client->redirect($requestParamsRedirect);
+    $url        = $client->redirect($requestParamsRedirect);
 
-var_dump($url);
+    var_dump($url);
 
 ---
 签名示例
 ---
-$sign       = $client->sign($json);
+    $sign       = $client->sign($json);
 
-var_dump($sign);
+    var_dump($sign);
 
 ---
 验签示例
 ---
-$bool           = $client->verify($responseBody, $signStr);
-var_dump($bool);
+    $bool           = $client->verify($responseBody, $signStr);
+    
+    var_dump($bool);
 
 ---
 tips:正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，
