@@ -1,6 +1,6 @@
 <?php
 
-class Util{
+class CYPayUtil{
 
     /**
      * 去掉无效参数
@@ -82,18 +82,18 @@ class Util{
     }
 
     /**
-     * 获取请求头的签名字符串
+     * curl响应头获取请求头的签名字符串
      * @param $header
      * @return bool|string
      */
     public function getHeaderSignStr($header)
     {
         $sign = '';
-        $header         = $this->filter($header);
-        if(strstr($header,Config::X_API_SIGN_RESPONSE)){
-            $positionStart  = strpos($header,Config::X_API_SIGN_RESPONSE);
-            $keyLength      = strlen(Config::X_API_SIGN_RESPONSE);
-            $sign           = substr($header,$positionStart + $keyLength,Config::X_API_SIGN_LENGTH);
+        $header = $this->filter($header);
+        if(strstr($header,CYPayConst::X_API_SIGN_RESPONSE)){
+            $positionStart  = strpos($header,CYPayConst::X_API_SIGN_RESPONSE);
+            $keyLength      = strlen(CYPayConst::X_API_SIGN_RESPONSE);
+            $sign           = substr($header,$positionStart + $keyLength,CYPayConst::X_API_SIGN_LENGTH);
         };
 
 
@@ -151,6 +151,7 @@ class Util{
         return strtolower(md5(trim($str)));
     }
 
+
     /**
      * 拼接跳转 url
      * @param $host
@@ -165,29 +166,15 @@ class Util{
             die('parameters can not be null');
         }
 
-        $gid = $this->generateGid();
         $content = urlencode($content);
-        $url = $host.'?'.Config::X_API_SIGNTYPE.'='.Config::MD5.'&'.Config::X_API_ACCESSKEY.'='.$appKey.'&'.Config::X_API_SIGN.'='.$sign.'&body='.$content.'&gid='.$gid;
+        $url = $host.'?'
+            .CYPayConst::X_API_SIGNTYPE.'='.CYPayConst::MD5.'&'
+            .CYPayConst::X_API_ACCESSKEY.'='.$appKey.'&'
+            .CYPayConst::X_API_SIGN.'='.$sign.'&body='.$content;
 
         return $url;
 
     }
 
-    /**
-     * 生成随机数
-     * @param int $length
-     * @return string
-     */
-    public function generateGid($length = 24)
-    {
-
-        $chars  = '0123456789abcdef'; // 密码字符集，可任意添加你需要的字符
-        $gid    = 'g';
-        for ( $i = 0; $i < $length; $i++ ){
-            $gid .= $chars[mt_rand(0, strlen($chars) - 1)];
-        }
-
-        return $gid;
-    }
 
 }

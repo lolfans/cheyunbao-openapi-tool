@@ -1,6 +1,6 @@
 <?php
 
-class Response{
+class CYPayResponse{
 
     private $host;
     private $content;

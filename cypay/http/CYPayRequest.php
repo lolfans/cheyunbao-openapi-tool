@@ -1,6 +1,6 @@
 <?php
 
-class Request{
+class CYPayRequest{
 
     protected  $host;
     protected  $accessKey;

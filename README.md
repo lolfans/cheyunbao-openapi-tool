@@ -1,52 +1,39 @@
-------
-使用方法：详细可以看 demo.php 具体实现
-------
+###cypay-openapi-sdk-php 使用说明
 
-1、 先下载此工具包到项目的工具类文件夹下
+1,经过测试,本工具支持的PHP版本支持PHP5.3至PHP7.3.支持http/https.
 
-2、 require_once 'Client.php';  //此处注意包含该文件 要根据项目的实际位置设置，切记
+2,将本工具包放到项目里 如libs的工具文件夹中，具体使用可参考demo.php.
 
- 
-    $accessKey = '19092311080520110003';   // 接入商账号 请根据实际情况填入
+3,访问demo.php:`http://localhost:[port]/cypay-openapi-sdk-php/cypay/demo.php`.
 
-    $secretKey = '06f7aab08aa2431e6dae6a156fc9e0b4';   // 接入商密钥 请根据实际情况填入
+4,demo.php中演示了4种调用，分别为send(通用接口调用)、redirect(获取跳转链接时调用)、sign(签名调用)、verify(验签调用).
 
-    $gateway   = 'http://cyb-openapi.qizhangtong.com:8070/gateway.do';   // 请求网关  请根据实际情况填入 此处仅是测试环境
+5,test文件夹中有创建订单、支付宝被扫码支付、余额支付、企业用户注册4个测试案例，可参考使用.
 
-    $client    = new Client($gateway, $accessKey, $secretKey);   //初始化时 带入必填参数
+6,php-version.php是用于检测当前环境的PHP版本的探针，访问到本页面就会展示PHP版本及拓展信息.
 
+######包文件说明
 
----
-通用请求示例
----
-    $response  = $client->send($requestParamsSend);
-
-    var_dump($response);
-
-
----
-跳转接口示例
----
-    $url = $client->redirect($requestParamsRedirect);
-
-    var_dump($url);
-
----
-签名示例
----
-    $sign = $client->sign($json);
-
-    var_dump($sign);
-
----
-验签示例
----
-    $bool = $client->verify($responseBody, $signStr);
-    
-    var_dump($bool);
-
----
-tips:正常情况下，在任何能正常跑PHP的环境中，直接将代码放到本地，demo.php就可以直接访问 看到输出结果。若是出现放到项目中不能调用的情况，一是注意包含client.php的路径是否正确，二是注意命名空间的问题。
----
-
-
+***
+<pre>
+cypay-openapi-sdk-php
+   | cypay
+   |   |- config    //配置文件夹
+   |   |    |- CYPayConfig.php          //配置文件
+   |   |- http      //网络请求相关
+   |   |    |- CYPayHttpClient.php      //请求处理核心类
+   |   |    |- CYPayRequest.php         //请求类
+   |   |    |- CYPayResponse.php        //响应类
+   |   |- test      //测试文件夹
+   |   |    |- AliBeiScanPayTest.php    //支付宝被扫码支付
+   |   |    |- BalancePayTest.php       //企帐通余额支付
+   |   |    |- EnterpriseRegisterTest.php   //企业用户注册
+   |   |    |- TradeCreateTest.php      //创建普通订单
+   |   |- utils     //工具文件夹
+   |   |    |- CYPayConstant.php    //常量类
+   |   |    |- CYPayUtil.php        //工具类
+   |   |- CYPayClient.php           //核心类 包含此文件并创建实例 即可调用该类中的方法
+   |   |- demo.php                  //演示4种常见调用
+   |   |- php-version.php           //php版本信息探针
+   |- README.md     //用前须知
+</pre>
